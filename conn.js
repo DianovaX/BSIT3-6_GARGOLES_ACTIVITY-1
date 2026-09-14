@@ -1,13 +1,13 @@
 const mysql = require('mysql2');
 
-const db = mysql.createConnection({
+const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
     database: 'biodata'
 });
 
-db.connect((err) => {
+conn.connect((err) => {
     if (err) {
         console.log('Database connection failed:', err);
     } else {
@@ -15,4 +15,4 @@ db.connect((err) => {
     }
 });
 
-module.exports = db;
+module.exports = conn;
