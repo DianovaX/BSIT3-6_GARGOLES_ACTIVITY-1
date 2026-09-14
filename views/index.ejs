@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Biodata</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 8px;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>MY BIODATA</h1>
+
+    <form action="/insert" method="POST">
+
+        <h2>Personal Information</h2>
+
+        <label>Full Name</label>
+        <input type="text" name="full_name" value="Louel Faensolin" required>
+
+        <label>Age</label>
+        <input type="number" name="age" value="20" required>
+
+        <label>Address</label>
+        <input type="text" name="address" value="Sta. Carmen, Dumalag, Capiz" required>
+
+        <label>Gender</label>
+        <input type="text" name="gender" value="Female" required>
+
+        <label>Nationality</label>
+        <input type="text" name="nationality" value="Filipino" required>
+
+        <label>Civil Status</label>
+        <input type="text" name="civil_status" value="Single" required>
+
+
+        <h2>Educational Information</h2>
+
+        <label>Course</label>
+        <input type="text" name="course" value="Information Technology" required>
+
+        <label>Year Level</label>
+        <input type="text" name="year_level" value="College" required>
+
+        <label>School</label>
+        <input type="text" name="school" value="PHINMA Education" required>
+
+
+        <h2>Personal Interests</h2>
+
+        <label>Hobby</label>
+        <input type="text" name="hobby" value="Playing Basketball" required>
+
+        <label>Favorite Activity</label>
+        <input type="text" name="favorite_activity" value="Playing Sports" required>
+
+        <label>Interest</label>
+        <input type="text" name="interest" value="Technology and Computers" required>
+
+
+        <h2>Skills</h2>
+
+        <label>Computer Skills</label>
+        <input type="text" name="computer_skills" value="Basic Programming" required>
+
+        <label>Web Development</label>
+        <input type="text" name="web_development" value="HTML, CSS, JavaScript" required>
+
+        <label>Other Skills</label>
+        <input type="text" name="other_skills" value="Communication and Teamwork" required>
+
+        <button type="submit">INSERT BIODATA</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
