@@ -1,8 +1,6 @@
 const express = require('express');
 const db = require('./conn');
-
 const app = express();
-const PORT = 9000;
 
 app.set('view engine', 'ejs');
 
@@ -16,74 +14,34 @@ app.get('/', (req, res) => {
 // INSERT biodata into MySQL
 app.post('/insert', (req, res) => {
 
-    const {
-        full_name,
-        age,
-        address,
-        gender,
-        nationality,
-        civil_status,
-        course,
-        year_level,
-        school,
-        hobby,
-        favorite_activity,
-        interest,
-        computer_skills,
-        web_development,
-        other_skills
-    } = req.body;
+    const fn = req.body.fn;
+    const age = req.body.age;
+    const add = req.body.add;
+    const gen = req.body.gen;
+    const nat = req.body.nat;
+    const cs = req.body.cs;
+    const course = req.body.course;
+    const yl = req.body.yl;
+    const school = req.body.school;
+    const hobby = req.body.hobby;
+    const interest = req.body.interest;
+    const skills = req.body.skills;
 
-    const sql = `
-        INSERT INTO personal_info
-        (
-            full_name,
-            age,
-            address,
-            gender,
-            nationality,
-            civil_status,
-            course,
-            year_level,
-            school,
-            hobby,
-            favorite_activity,
-            interest,
-            computer_skills,
-            web_development,
-            other_skills
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `;
+    const insert = `INSERT INTO personal_info
+    VALUES('0','${fn}',${age},'${add}','${gen}','${nat}','${cs}','${course}','${yl}','${school}','${hobby}','${interest}','${skills}')`;
 
-    const values = [
-        full_name,
-        age,
-        address,
-        gender,
-        nationality,
-        civil_status,
-        course,
-        year_level,
-        school,
-        hobby,
-        favorite_activity,
-        interest,
-        computer_skills,
-        web_development,
-        other_skills
-    ];
+    db.query(insert, (err) => {
+        if (err) throw err;
 
-    db.query(sql, values, (err, result) => {
-
-        if (err) {
-            console.log(err);
-            return res.send('Error inserting biodata.');
-        }
-
-        console.log('Biodata inserted successfully!');
-        res.send('Biodata successfully inserted into the database!');
+        res.send(`
+            <script>
+                alert('Data inserted successfully!');
+                location.href='/';
+            </script>
+        `);
     });
 });
 
-app.listen(9000);
+app.listen(9000, () => {
+    console.log('Server running');
+});
